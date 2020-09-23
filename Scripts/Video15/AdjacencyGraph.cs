@@ -141,7 +141,7 @@ namespace SimpleCity.AI
             {
                 Vertex current = GetClosestVertex(positionsTocheck, priorityDictionary);
                 positionsTocheck.Remove(current);
-                if (current.Equals(endPosition))
+                if (current.Equals(end))
                 {
                     path = GeneratePath(parentsDictionary, current);
                     return path;
@@ -192,6 +192,7 @@ namespace SimpleCity.AI
                 path.Add(parent.Position);
                 parent = parentMap[parent];
             }
+            path.Reverse();
             return path;
         }
     }
